@@ -90,8 +90,6 @@ set omnifunc=syntaxcomplete#Complete
 highlight Pmenu ctermbg=white gui=bold  
 set completeopt-=preview " disable split window "
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/youcompleteme/cpp/.ycm_extra_conf.py'
-
 " PATHOGEN "
 call pathogen#infect() 
 call pathogen#helptags()
