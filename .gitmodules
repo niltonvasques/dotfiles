@@ -13,3 +13,12 @@
 [submodule ".vim/bundle/tern_for_vim"]
 	path = .vim/bundle/tern_for_vim
 	url = https://github.com/marijnh/tern_for_vim.git
+[submodule ".vim/bundle/vim-glsl"]
+	path = .vim/bundle/vim-glsl
+	url = https://github.com/tikhomirov/vim-glsl
+[submodule ".vim/bundle/vim-mutt-aliases-plugin"]
+	path = .vim/bundle/vim-mutt-aliases-plugin
+	url = git@github.com:niltonvasques/vim-mutt-aliases-plugin.git
+[submodule ".vim/bundle/vim-obsession"]
+	path = .vim/bundle/vim-obsession
+	url = git://github.com/tpope/vim-obsession.git
