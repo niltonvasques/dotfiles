@@ -60,12 +60,6 @@ endif
 " Loading ctrlp plugin"
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-" Use this option to change the mapping to invoke CtrlP in |Normal| mode: > "
-let g:ctrlp_map = '<c-p>'
-
-
-" Set the default opening command to use when pressing the above mapping: > "
-let g:ctrlp_cmd = 'CtrlP'
 
 " STATUS BAR "
 set laststatus=2
@@ -83,6 +77,10 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 
+" PATHOGEN "
+execute pathogen#infect()
+execute pathogen#helptags()
+
 "" OMNI COMPLETION "
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
@@ -90,10 +88,14 @@ set omnifunc=syntaxcomplete#Complete
 highlight Pmenu ctermbg=white gui=bold  
 set completeopt-=preview " disable split window "
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/youcompleteme/cpp/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
-" PATHOGEN "
-call pathogen#infect() 
-call pathogen#helptags()
+" Use this option to change the mapping to invoke CtrlP in |Normal| mode: > "
+let g:ctrlp_map = '<c-p>'
+
+
+" Set the default opening command to use when pressing the above mapping: > "
+let g:ctrlp_cmd = 'CtrlP'
+
 
 
