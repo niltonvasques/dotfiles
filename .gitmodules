@@ -18,7 +18,7 @@
 	url = https://github.com/tikhomirov/vim-glsl
 [submodule ".vim/bundle/vim-mutt-aliases-plugin"]
 	path = .vim/bundle/vim-mutt-aliases-plugin
-	url = git@github.com:niltonvasques/vim-mutt-aliases-plugin.git
+	url = https://github.com/niltonvasques/vim-mutt-aliases-plugin.git
 [submodule ".vim/bundle/vim-obsession"]
 	path = .vim/bundle/vim-obsession
 	url = git://github.com/tpope/vim-obsession.git
