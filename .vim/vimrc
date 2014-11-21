@@ -83,7 +83,7 @@ execute pathogen#helptags()
 
 "" OMNI COMPLETION "
 filetype plugin on
-"set omnifunc=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete
 " set autocomplete popup menu colors "
 highlight Pmenu ctermbg=white gui=bold  
 set completeopt-=preview " disable split window "
