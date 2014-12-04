@@ -19,6 +19,10 @@ runtime! debian.vim
 " line enables syntax highlighting by default.
 syntax on
 
+set expandtab 
+set shiftwidth=4
+set softtabstop=4
+
 " Uncomment next line to enable line numbers
 set nu
 
@@ -98,4 +102,6 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 
-
+" delimitMate options "
+let b:delimitMate_expand_cr = 1
+"let b:delimitMate_expand_space = 1
