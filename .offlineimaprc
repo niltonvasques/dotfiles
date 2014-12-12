@@ -1,0 +1,66 @@
+[general]
+ui = TTY.TTYUI
+accounts = niltonvasques 
+pythonfile=~/.mutt/offlineimap.py
+fsync = False
+
+[Account niltonvasques]
+localrepository = niltonvasques-local
+remoterepository = niltonvasques-remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository niltonvasques-local]
+type = Maildir
+localfolders = ~/.mail/niltonvasques@gmail.com
+nametrans = lambda folder: {'drafts':       '[Gmail]/Drafts',
+                            'sent':         '[Gmail]/Sent Mail',
+                            'flagged':      '[Gmail]/Starred',
+                            'trash':        '[Gmail]/Trash',
+                            'archive':      '[Gmail]/All Mail',
+                            'spam':         '[Gmail]/Spam',
+                            'important':    '[Gmail]/Important',
+                            'inbox':        'INBOX',
+                            'github':       'GitHub',
+                            'important':    'Importantes',
+                            'irt':          'IRT',
+                            'linux':        'Linux',
+                            'linux':        'Ubuntu',
+                            'ufba':         'UFBA',
+                            'accounts':     'Cadastros',
+                            'finances':     'Finances',
+                            'files':        'My Files',
+                            'payments':     'Payments',
+                            'mobiloucos':   'Mobiloucos',
+                            }.get(folder, folder)
+
+[Repository niltonvasques-remote]
+maxconnections = 1
+type = Gmail
+remoteuser = nilton.vasques@gmail.com 
+remotepasseval = mailpasswd("OfflineImap/niltonvasques@gmail.com") 
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':       'drafts',
+                            '[Gmail]/Sent Mail':    'sent',
+                            '[Gmail]/Starred':      'flagged',
+                            '[Gmail]/Trash':        'trash',
+                            '[Gmail]/All Mail':     'archive',
+                            '[Gmail]/Spam':         'spam',         
+                            '[Gmail]/Important':    'important',    
+                            'INBOX':                'inbox',
+                            'GitHub':               'github',
+                            'Importantes':          'important',
+                            'IRT':                  'irt',
+                            'Linux':                'linux',
+                            'Ubuntu':               'linux',
+                            'UFBA':                 'ufba',
+                            'Cadastros':            'accounts',
+                            'Finances':             'finances',
+                            'My Files':             'files',
+                            'Payments':             'payments',
+                            'Mobiloucos':           'mobiloucos',
+                            }.get(folder, folder)
+
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Spam',
+                                             ]

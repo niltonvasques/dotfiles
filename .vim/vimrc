@@ -105,3 +105,6 @@ let g:ctrlp_cmd = 'CtrlP'
 " delimitMate options "
 let b:delimitMate_expand_cr = 1
 "let b:delimitMate_expand_space = 1
+
+" Indent Options "
+autocmd FileType c setlocal autoindent cindent 
