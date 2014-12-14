@@ -1,0 +1,27 @@
+{
+	"segments": {
+		"right": [
+                        {
+                                "function": "powerline.segments.common.players.cmus",
+                                "name": "player"
+                        },
+			{
+				"function": "powerline.segments.common.time.date",
+                                "args": {
+                                    "format": "%d/%m/%y"
+                                }
+			},
+			{
+				"function": "powerline.segments.common.time.date",
+				"name": "time",
+				"args": {
+					"format": "%H:%M",
+					"istime": true
+				}
+			},
+			{
+				"function": "powerline.segments.common.net.hostname"
+			}
+		]
+	}
+}
