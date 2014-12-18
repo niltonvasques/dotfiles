@@ -14,7 +14,7 @@ status_backend = sqlite
 # syncing your mail periodically. If you want that, specify how
 # frequently to do that (in minutes) here. You can also specify
 # fractional minutes (ie, 3.25).
-autorefresh = 5 
+#autorefresh = 5 
 # You can tell offlineimap to do a number of quicker synchronizations
 # between full updates. A quick synchronization only synchronizes
 # if a Maildir folder has changed, or if an IMAP folder has received
@@ -22,7 +22,7 @@ autorefresh = 5
 # only changes were to IMAP flags. Specify 0 to never do quick updates,
 # -1 to always do quick updates, or a positive integer to do that many
 # quick updates between each full synchronization (requires autorefresh).
-quick = 10
+#quick = 20 
 
 [Repository niltonvasques-local]
 type = Maildir
@@ -49,7 +49,7 @@ nametrans = lambda folder: {'drafts':       '[Gmail]/Drafts',
                             }.get(folder, folder)
 
 [Repository niltonvasques-remote]
-maxconnections = 1
+maxconnections = 2
 type = Gmail
 remoteuser = nilton.vasques@gmail.com 
 remotepasseval = mailpasswd("OfflineImap/niltonvasques@gmail.com") 

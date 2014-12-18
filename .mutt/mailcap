@@ -2,17 +2,17 @@
 application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
 
 # Images
-image/jpg; ~/.mutt/view_attachment.sh %s jpg
-image/jpeg; ~/.mutt/view_attachment.sh %s jpg
-image/pjpeg; ~/.mutt/view_attachment.sh %s jpg
-image/png; ~/.mutt/view_attachment.sh %s png
-image/gif; ~/.mutt/view_attachment.sh %s gif
+image/jpg; eog %s jpg
+image/jpeg; eog %s jpg
+image/pjpeg; eog %s jpg
+image/png; eog %s png
+image/gif; eog %s gif
 
 # PDFs
-application/pdf; ~/.mutt/view_attachment.sh %s pdf
+application/pdf; evince %s 
 
 # HTML
-text/html; ~/.mutt/view_attachment.sh %s html
+text/html; firefox %s 
 
 # Unidentified files
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
