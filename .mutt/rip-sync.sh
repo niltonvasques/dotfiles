@@ -5,4 +5,4 @@ while pkill --signal 0 offlineimap
 do
     sleep 2
 done
-offlineimap a niltonvasques > ~/.mutt/log/mail-log 2>&1 &
+offlineimap -a niltonrip > ~/.mutt/log/mailrip-log 2>&1 &
