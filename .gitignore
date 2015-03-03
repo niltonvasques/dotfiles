@@ -1,2 +1,4 @@
 *.swp
 .offlineimaprc
+.mutt/Assinatura.jpg
+**/*.log
