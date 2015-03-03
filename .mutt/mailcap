@@ -1,5 +1,10 @@
 # MS Word documents
-application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+application/msword; libreoffice %s
+application/ppt; libreoffice %s
+application/vnd.ms-powerpoint; libreoffice %s
+application/x-mspowerpoint; libreoffice %s
+application/xls; libreoffice %s
+application/vnd.ms-excel; libreoffice %s
 
 # Images
 image/jpg; eog %s jpg

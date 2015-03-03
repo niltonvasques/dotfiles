@@ -15,8 +15,7 @@ set postponed = "+nilton.junior@thyssenkrupp.com/Drafts"
 set mbox = "+nilton.junior@thyssenkrupp.com/Archives"
 
 mailboxes +nilton.junior@thyssenkrupp.com/INBOX \
-          +nilton.junior@thyssenkrupp.com/Enviados \
-          +nilton.junior@thyssenkrupp.com/Mensagens enviadas \
+          +nilton.junior@thyssenkrupp.com/enviadas \
           +nilton.junior@thyssenkrupp.com/Sent \
 
 
@@ -95,6 +94,7 @@ macro index <esc>m "T~N<enter>;WNT~O<enter>;WO\CT~T<enter>" "mark all messages r
 bind index,pager <down>   sidebar-next
 bind index,pager <up>     sidebar-prev
 bind index,pager <right>  sidebar-open
+bind index,pager <left>   sidebar-open
 
 #Here’s another example, which maps the forward slash symbol (/) to the search command, as in vi,
 bind pager / search

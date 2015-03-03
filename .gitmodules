@@ -31,3 +31,6 @@
 [submodule "powerline-fonts"]
 	path = powerline-fonts
 	url = https://github.com/powerline/fonts
+[submodule "fonts"]
+	path = fonts
+	url = git@github.com:powerline/fonts.git

@@ -3,7 +3,7 @@
 
 while true      # run forever
 do
-    offlineimap -a niltonvasques 2> ~/.mutt/log/offlineimap.log  # run offlineimap and copy log to ~/mail-log
+    nohup offlineimap -a niltonvasques > $HOME/.mutt/log/offlineimap.log 2>> $HOME/.mutt/log/offlineimap.log  # run offlineimap and copy log to ~/mail-log
     sleep 120   # sleep 2 minutes
 done &          # run loop in background
 LOOP_PID=$!     # copy PID of loop

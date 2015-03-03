@@ -108,3 +108,8 @@ let b:delimitMate_expand_cr = 1
 
 " Indent Options "
 autocmd FileType c setlocal autoindent cindent 
+
+" Ruby indentation from http://ubuntuforums.org/showthread.php?t=290462
+if has ("autocmd")
+    filetype indent on
+endif
