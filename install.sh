@@ -7,8 +7,7 @@ confirm () {
            true 
             ;;
         *)
-           false 
-            ;;
+           false ;;
     esac
 }
 
@@ -36,7 +35,8 @@ for i in .*; do
 done
 ln -s $current_dir/powerline/fonts/PowerlineSymbols.otf $HOME/.fonts/PowerlineSymbols.otf
 fc-cache -vf $HOME/.fonts/
-ln -s $HOME/Development/Linux/dotfiles/powerline/fonts/10-powerline-symbols.conf $HOME/.fonts/fontconfig/conf.d/10-powerline-symbols.conf
+ln -s $current_dir/powerline/fonts/10-powerline-symbols.conf $HOME/.fonts/fontconfig/conf.d/10-powerline-symbols.conf
 echo 'install dotfiles finished';  
 
-
+echo 'Installing a cool theme color in terminal...'
+bash $current_dir/iterm2themes-gnome-term.sh twilight
