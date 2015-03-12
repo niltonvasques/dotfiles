@@ -20,8 +20,8 @@ runtime! debian.vim
 syntax on
 
 set expandtab 
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 
 " Uncomment next line to enable line numbers
 set nu

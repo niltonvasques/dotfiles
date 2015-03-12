@@ -2,6 +2,13 @@
     "segments": {
         "right": [
             {
+                "function": "powerline.segments.common.wthr.weather",
+                "args": {
+                  "unit": "C",  
+                  "location_query": "salvador, brazil"
+                }
+            },
+            {
                 "function": "powerline.segments.common.players.cmus",
                 "name": "player",
                 "args": {
