@@ -30,7 +30,7 @@ So, move to .vim/bundle/tern_for_vim/ and follow this instructions:
 * `git merge upstream/master`
 * Create a branch: `git checkout -b your_branch_name`
 * Do what you need
-* Commit the changes to your branch
+* `Commit` the changes and `push` it to your `branch`
 * Create a `Pull Request`
 
 __To keep your fork sync:__
