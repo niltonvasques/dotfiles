@@ -24,6 +24,7 @@ mailboxes +niltonvasques@gmail.com/inbox \
           +niltonvasques@gmail.com/payments \
           +niltonvasques@gmail.com/drafts \
           +niltonvasques@gmail.com/archive \
+          +niltonvasques@gmail.com/spam \      
 
 #mailboxes +niltonvasques@gmail.com/drafts \    
 #          +niltonvasques@gmail.com/sent \      
@@ -112,6 +113,8 @@ macro index,pager s '<sync-mailbox><shell-escape>~/.mutt/mail-sync.sh &<enter>' 
 macro index .n "l~N\n" # show only new messages
 macro index .a "l~A\n" # show all messages
 macro index <esc>m "T~N<enter>;WNT~O<enter>;WO\CT~T<enter>" "mark all messages read" # Mark all messages as readed
+
+macro index S "<save-message>+niltonvasques@gmail.com/spam<enter>" "mark message as spam"
 
 # Side Bar Pacth -------------------------------------
 

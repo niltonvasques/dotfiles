@@ -17,7 +17,7 @@ image/gif; eog %s gif
 application/pdf; evince %s 
 
 # HTML
-text/html; firefox %s 
+text/html; chromium %s 
 
 # Unidentified files
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
