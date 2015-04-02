@@ -36,6 +36,7 @@ dotfiles_list.each do |dot|
       system "rm -Rf #{dest_file}"
       #system "ln -s #{dot}"
     end
-    File.symlink(dot, dest_file)
   end
+  puts "Create symlink #{dest_file} -> #{dot}"
+  File.symlink(dot, dest_file)
 end
