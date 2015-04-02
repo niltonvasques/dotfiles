@@ -17,10 +17,7 @@ HOME = ENV['HOME']
 
 def are_you_sure?
   print "Are you sure? [y/N]: "
-  if %w[y Y].include?(gets.chop)
-    true
-  end
-  false
+  %w[y Y].include?(gets.chop)
 end
 
 def dotfiles_list
@@ -30,13 +27,17 @@ end
 
 dotfiles_list.each do |dot|
   dest_file = "#{HOME}/#{dot}" 
-  if File.file?(dest_file) || File.directory?(dest_file)
+  dot = "#{Dir.pwd}/#{dot}"
+  if File.file?(dest_file) || File.directory?(dest_file) || File.symlink?(dest_file)
     puts "#{dest_file} exists and will be erased."
     if are_you_sure?
+      puts "rm -Rf #{dest_file}"
       system "rm -Rf #{dest_file}"
-      #system "ln -s #{dot}"
+      puts "Create symlink #{dest_file} -> #{dot}"
+      File.symlink(dot, dest_file)
     end
+  else 
+    puts "Create symlink #{dest_file} -> #{dot}"
+    File.symlink(dot, dest_file)
   end
-  puts "Create symlink #{dest_file} -> #{dot}"
-  File.symlink(dot, dest_file)
 end
