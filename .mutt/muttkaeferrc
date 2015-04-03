@@ -8,16 +8,8 @@ set folder = ~/.mail
 set mailcap_path=~/.mutt/mailcap
 set mailcap_sanitize
 
-# Account Settings -----------------------------------
-set spoolfile = "+nilton.junior@kaefer.com/INBOX"
-set postponed = "+nilton.junior@kaefer.com/Drafts"
-set mbox = "+nilton.junior@kaefer.com/Archives"
-
-mailboxes +nilton.junior@kaefer.com/INBOX \
-          +nilton.junior@kaefer.com/Sent \
-          +nilton.junior@kaefer.com/Drafts \
-          +nilton.junior@kaefer.com/Junk \
-          +nilton.junior@kaefer.com/Trash \
+# Private Settings -----------------------------------
+source ~/.mutt/private-kaefer.muttrc
 
 
 # Misc -----------------------------------------------
@@ -106,8 +98,7 @@ bind pager / search
 macro index b '<enter-command>toggle sidebar_visible<enter>'
 macro pager b '<enter-command>toggle sidebar_visible<enter>'
 
-# Compose View Options -------------------------------
-set realname = "Nilton Vasques"      # who am i?
+# compose view options -------------------------------
 set envelope_from                    # which from?
 set sig_dashes                       # dashes before sig
 set edit_headers                     # show headers when composing
@@ -123,11 +114,6 @@ set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
-# Sending options
-set from     = "nilton.junior@kaefer.com"
-set sendmail = "/usr/bin/msmtp -a niltonkaefer"
-set sendmail_wait = 0
-unset record
 
 # -----------------------------------------------------------------------------------------------
 # Loading Alias File
