@@ -10,40 +10,7 @@ set mailcap_path=~/.mutt/mailcap
 set mailcap_sanitize
 
 # Account Settings -----------------------------------
-set spoolfile = "+niltonvasques@gmail.com/inbox"
-set postponed = "+niltonvasques@gmail.com/drafts"
-set mbox = "+niltonvasques@gmail.com/archive"
-
-mailboxes +niltonvasques@gmail.com/inbox \
-          +niltonvasques@gmail.com/sent \
-          +niltonvasques@gmail.com/important \
-          +niltonvasques@gmail.com/ufba \
-          +niltonvasques@gmail.com/mobiloucos \
-          +niltonvasques@gmail.com/linux \
-          +niltonvasques@gmail.com/finances \
-          +niltonvasques@gmail.com/payments \
-          +niltonvasques@gmail.com/drafts \
-          +niltonvasques@gmail.com/archive \
-          +niltonvasques@gmail.com/spam \      
-
-#mailboxes +niltonvasques@gmail.com/drafts \    
-#          +niltonvasques@gmail.com/sent \      
-#          +niltonvasques@gmail.com/flagged \   
-#          +niltonvasques@gmail.com/trash \     
-#          +niltonvasques@gmail.com/archive \   
-#          +niltonvasques@gmail.com/spam \      
-#          +niltonvasques@gmail.com/important \ 
-#          +niltonvasques@gmail.com/inbox \     
-#          +niltonvasques@gmail.com/github \    
-#          +niltonvasques@gmail.com/important \ 
-#          +niltonvasques@gmail.com/irt \       
-#          +niltonvasques@gmail.com/linux \     
-#          +niltonvasques@gmail.com/ufba \      
-#          +niltonvasques@gmail.com/accounts \  
-#          +niltonvasques@gmail.com/finances \  
-#          +niltonvasques@gmail.com/files \     
-#          +niltonvasques@gmail.com/payments \  
-#          +niltonvasques@gmail.com/mobiloucos \
+source ~/.mutt/private.muttrc
 
 # Misc -----------------------------------------------
 set display_filter = ~/.mutt/aliases.sh #store addres from mail readed
@@ -134,7 +101,6 @@ macro index b '<enter-command>toggle sidebar_visible<enter>'
 macro pager b '<enter-command>toggle sidebar_visible<enter>'
 
 # Compose View Options -------------------------------
-set realname = "Nilton Vasques"      # who am i?
 set envelope_from                    # which from?
 set sig_dashes                       # dashes before sig
 set edit_headers                     # show headers when composing
@@ -149,12 +115,6 @@ set reply_to                         # reply to Reply to: field
 set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
-
-# Sending options
-set from     = "niltonvasques@gmail.com"
-set sendmail = "/usr/bin/msmtp -a niltonvasques"
-set sendmail_wait = 0
-unset record
 
 # -----------------------------------------------------------------------------------------------
 # Loading Alias File

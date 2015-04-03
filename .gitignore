@@ -2,3 +2,4 @@
 .offlineimaprc
 .mutt/Assinatura.jpg
 **/*.log
+.mutt/private.muttrc
