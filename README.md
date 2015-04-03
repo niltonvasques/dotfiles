@@ -6,11 +6,18 @@ My personal repo to store dotfiles used by some programs, like vim, tmux e etc.
 
 ###Instalation
 ---------------------
-git clone https://github.com/niltonvasques/dotfiles.git
+    git clone https://github.com/niltonvasques/dotfiles.git
 
-cd dotfiles
+    cd dotfiles
 
-git submodule update --init --recursive
+    git submodule update --init --recursive
+
+    ./install.rb or ruby install.rb
+
+For disable some vim plugin, just deinit git module in bundle folder. 
+For example, if you wish disable YouCompleteMe vim plugin just type this:
+
+    git submodule deinit .vim/bundle/YouCompleteMe
 
 To make tern_form_vim works, is needed make some configurations.
 
