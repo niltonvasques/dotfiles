@@ -68,3 +68,11 @@ if are_you_sure?
     f.puts "eval `dircolors ~/.dir_colors`"
   end
 end
+
+puts "Do you want install powerline configurations?"
+if are_you_sure?
+  powerline = "#{Dir.pwd}/powerline"
+  powerline_dest = "#{HOME}/.config/powerline"
+  puts "Create symlink #{powerline_dest} -> #{powerline}"
+  File.symlink(powerline, powerline_dest) 
+end
