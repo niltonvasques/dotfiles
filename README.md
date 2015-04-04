@@ -4,6 +4,29 @@ My personal repo to store dotfiles used by some programs, like vim, tmux e etc.
 
 ###Instalation
 ---------------------
+
+For run ruby script is required install ruby interpreter.
+####First Method: Using RVM
+> Wondering why you should use RVM? For a start, not only does RVM make installing 
+> multiple ruby interpreters / runtimes easy and consistent, it provides features 
+> such as gemsets that aren't typically supported out of the box on most ruby installs.
+> from: https://rvm.io/rvm/basics
+  1) Update apt:
+    sudo apt-get update
+  2) Install curl:
+    sudo apt-get install curl
+  3) Download and install RVM:
+    \curl -L https://get.rvm.io | bash -s stable
+  4) Load RVM
+    source ~/.rvm/scripts/rvm
+  5) Install RVM requirements:
+    rvm requirements
+  6) Install latest Ruby version:
+    rvm install ruby 
+####Second Method: package managet (apt-get aptitude)
+    aptitude install ruby
+
+####Next, clone repo, initialize modules and install it.
     git clone https://github.com/niltonvasques/dotfiles.git
 
     cd dotfiles
