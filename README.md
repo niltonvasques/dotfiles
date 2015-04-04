@@ -31,10 +31,11 @@ For run ruby script is required install ruby interpreter.
 
     rvm install ruby 
     
-#####Second Method: package managet (apt-get aptitude)
+#####Second Method: package manager (apt-get aptitude)
     aptitude install ruby
 
 #####Next, clone repo, initialize modules and install it.
+
     git clone https://github.com/niltonvasques/dotfiles.git
 
     cd dotfiles
