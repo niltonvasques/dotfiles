@@ -42,6 +42,14 @@ dotfiles_list.each do |dot|
   end
 end
 
+# Install base16-default theme in gnome-terminal 
+puts "Do you want install base-16 theme to gnome-terminal?"
+if are_you_sure?
+  system "./gnome-terminal/base16-gnome-terminal/base16-default.dark.sh"
+  system "echo 'export TERM=screen-256color-bce' >> ~/.bashrc"
+  puts "After finish setup, restart gnome-terminal and choose theme in profiles."
+end
+
 # Setting solarized theme to gnome-terminal
 puts "Do you want install sollarized theme to gnome-terminal?"
 if are_you_sure?
