@@ -46,7 +46,7 @@ Command | Description
 --------|------------------------------------------------------------------------------------------------------------
     ]s  |  go to next wrong word; 
     [s  |  go to previous wrong word;
-    z=  |  show list of suggestions words;
+    z=  |  show suggested list of words, to replace wrong word;
     zg  |  add word under cursor in dictionary, thus it do not will be marked as wrong;
     zug |  revert last word added to dictionary;
     zw  |  removes the word under cursor from dictionary, thus it will be marked as wrong;
