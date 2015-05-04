@@ -3,7 +3,8 @@
 ### Installing
 
 Download dictionary of words from [libreoffice vero project](https://pt-br.libreoffice.org/projetos/vero/#baixarvero).
-wget https://pt-br.libreoffice.org/assets/Uploads/PT-BR-Documents/VERO/VeroptBRV320AOC.oxt
+
+    wget https://pt-br.libreoffice.org/assets/Uploads/PT-BR-Documents/VERO/VeroptBRV320AOC.oxt
 
 Extract it.
 
