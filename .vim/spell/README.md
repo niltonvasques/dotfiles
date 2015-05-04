@@ -3,7 +3,8 @@
 ### Installing
 
 Download dictionary of words from [libreoffice vero project](https://pt-br.libreoffice.org/projetos/vero/#baixarvero).
-wget https://pt-br.libreoffice.org/assets/Uploads/PT-BR-Documents/VERO/VeroptBRV320AOC.oxt
+
+    wget https://pt-br.libreoffice.org/assets/Uploads/PT-BR-Documents/VERO/VeroptBRV320AOC.oxt
 
 Extract it.
 
@@ -40,13 +41,15 @@ So append this line you `.bash_aliases` file:
 
 
 ### Using spell checker
+In visual mode, use this commands:
 
-**In**    visual mode
-**]s**    go to next wrong word; 
-**[s**    go to previous wrong word;
-**z=**    show list of suggestions words;
-**zg**    add word under cursor in dictionary, thus it do not will be marked as wrong;
-**zug**   revert last word added to dictionary;
-**zw**    removes the word under cursor from dictionary, thus it will be marked as wrong;
-**zuw**   revert the last removed word from dictionary.
+Command | Description
+--------|------------------------------------------------------------------------------------------------------------
+    ]s  |  go to next wrong word; 
+    [s  |  go to previous wrong word;
+    z=  |  show suggested list of words, to replace wrong word;
+    zg  |  add word under cursor in dictionary, thus it do not will be marked as wrong;
+    zug |  revert last word added to dictionary;
+    zw  |  removes the word under cursor from dictionary, thus it will be marked as wrong;
+    zuw |  revert the last removed word from dictionary.
 
