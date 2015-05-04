@@ -40,8 +40,8 @@ So append this line you `.bash_aliases` file:
 
 
 ### Using spell checker
+In visual mode, use this commands:
 
-    In    visual mode
     ]s    go to next wrong word; 
     [s    go to previous wrong word;
     z=    show list of suggestions words;
