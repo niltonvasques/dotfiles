@@ -53,3 +53,9 @@ Command | Description
     zw  |  removes the word under cursor from dictionary, thus it will be marked as wrong;
     zuw |  revert the last removed word from dictionary.
 
+### References
+
+Vim org - http://www.vim.org/
+Viva ao Linux - http://www.vivaolinux.com.br/dica/Adicionando-corretor-ortografico-em-portugues-no-Vim
+
+
