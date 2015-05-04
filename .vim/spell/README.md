@@ -1,6 +1,6 @@
 ## How to install spell checker in vim
 
-Download dictionary of words from libreoffice project
+Download dictionary of words from [libreoffice vero project](https://pt-br.libreoffice.org/projetos/vero/#baixarvero) 
 
     wget https://pt-br.libreoffice.org/assets/Uploads/PT-BR-Documents/VERO/VeroptBRV320AOC.oxt
 
