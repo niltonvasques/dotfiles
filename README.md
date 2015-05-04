@@ -58,7 +58,7 @@ So, move to .vim/bundle/tern_for_vim/ and follow this instructions:
 > Caution: Because the node process is not run using your standard shell, the NVM version of node.js won't work. You need a global node executable.
 > Fonte: https://github.com/marijnh/tern_for_vim
 
-![alt text](https://github.com/niltonvasques/dotfiles/raw/master/docs/res/ss.png "Screenshot")
+![alt text](https://github.com/niltonvasques/dotfiles/raw/master/docs/res/ss-new.png "Screenshot")
 
 ###Contribute with the project
 
