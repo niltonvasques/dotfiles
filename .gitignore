@@ -4,3 +4,4 @@
 **/*.log
 .mutt/private.muttrc
 .mutt/private-kaefer.muttrc
+*.pyc
