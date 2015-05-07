@@ -79,12 +79,15 @@ execute pathogen#helptags()
 
 "" OMNI COMPLETION "
 filetype plugin on
-set omnifunc=syntaxcomplete#Complete
 " set autocomplete popup menu colors "
 highlight Pmenu ctermbg=white gui=bold  
 set completeopt-=preview " disable split window "
+if has("autocmd") 
+  autocmd Filetype java setlocal omnifunc=javacomplete#Complete 
+  autocmd Filetype c setlocal omnifunc=syntaxcomplete#Complete
+endif 
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 " Use this option to change the mapping to invoke CtrlP in |Normal| mode: > "
 let g:ctrlp_map = '<c-p>'
