@@ -61,6 +61,9 @@
 [submodule "gnome-terminal/base16-gnome-terminal"]
 	path = gnome-terminal/base16-gnome-terminal
 	url = https://github.com/chriskempson/base16-gnome-terminal.git
+[submodule "gnome-terminal/base16-xfce4-terminal"]
+	path = gnome-terminal/base16-xfce4-terminal
+	url = https://github.com/chriskempson/base16-xfce4-terminal.git
 [submodule ".vim/bundle/javacomplete"]
 	path = .vim/bundle/javacomplete
 	url = https://github.com/vim-scripts/javacomplete.git

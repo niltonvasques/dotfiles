@@ -55,7 +55,8 @@ Command | Description
 
 ### References
 
-Vim org - http://www.vim.org/
+Vim org - http://www.vim.org/ 
+
 Viva ao Linux - http://www.vivaolinux.com.br/dica/Adicionando-corretor-ortografico-em-portugues-no-Vim
 
 
