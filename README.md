@@ -5,33 +5,8 @@ My personal repo to store dotfiles used by some programs, like vim, tmux e etc.
 ###Instalation
 ---------------------
 
-For run ruby script is required install ruby interpreter.
-#####First Method: Using RVM
-> Wondering why you should use RVM? For a start, not only does RVM make installing 
-> multiple ruby interpreters / runtimes easy and consistent, it provides features 
-> such as gemsets that aren't typically supported out of the box on most ruby installs.
-> from: https://rvm.io/rvm/basics
-
-1) Update apt:
-
-    sudo aptitude update
-2) Install curl:
-
-    sudo aptitude install curl
-3) Download and install RVM:
-
-    \curl -L https://get.rvm.io | bash -s stable
-4) Load RVM
-
-    source ~/.rvm/scripts/rvm
-5) Install RVM requirements:
-
-    rvm requirements
-6) Install latest Ruby version:
-
-    rvm install ruby 
     
-#####Second Method: package manager (apt-get aptitude)
+#####Install ruby interpreter
     aptitude install ruby
 
 #####Next, clone repo, initialize modules and install it.
@@ -50,6 +25,45 @@ For example, if you wish disable YouCompleteMe vim plugin just type this:
 
     git submodule deinit .vim/bundle/YouCompleteMe
 
+###Plugins
+-----------------------
+
+#####Ctrl-P
+Super ultra fast fuzzy finder for files. After use it once, you never more you want open files by old way.
+
+#####Emmet
+HTML tag generator. 
+Try:
+    html:5<ctrl-y> + <,>
+
+#####DelimitMate
+Auto close brackets for you.
+
+#####Vim Airline
+Just fancy, layout and colors for vim bar.
+
+#####Vim Increment Lines
+Auto increment numbers in a column.
+For use try it:
+
+    0
+    0
+    0
+
+Select columns using <ctrl+v> in visual mode, and press <ctrl-a>.
+And the lines will be changed to:
+
+    1
+    2
+    3
+
+#####YouCompleteMe plugin 
+YouCompleteMe only works in vim with Python Support
+So, follow instructions from YouCompleteMe repo, about how compile vim from source, and enable python..
+
+    [Installing vim from source](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source)
+
+#####Tern for vim (Javascript intellisense)
 To make tern_form_vim works, is needed make some configurations.
 
 So, move to .vim/bundle/tern_for_vim/ and follow this instructions:
