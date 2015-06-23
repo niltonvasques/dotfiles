@@ -74,7 +74,7 @@ if are_you_sure?
   powerline = "#{Dir.pwd}/powerline"
   powerline_dest = "#{HOME}/.config/powerline"
   puts "Create symlink #{powerline_dest} -> #{powerline}"
-  if File.file?(powerline_dest) || File.directory?(powerline_dest) || File.symlink?(dest_file)
+  if File.file?(powerline_dest) || File.directory?(powerline_dest) || File.symlink?(powerline_dest)
     system "rm -Rf #{powerline_dest}"
   end
   File.symlink(powerline, powerline_dest) 
