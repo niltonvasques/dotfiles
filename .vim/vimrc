@@ -85,6 +85,8 @@ set completeopt-=preview " disable split window "
 if has("autocmd") 
   autocmd Filetype java setlocal omnifunc=javacomplete#Complete 
   autocmd Filetype c setlocal omnifunc=syntaxcomplete#Complete
+  autocmd Filetype c++ setlocal omnifunc=syntaxcomplete#Complete
+  autocmd Filetype cpp setlocal omnifunc=syntaxcomplete#Complete
 endif 
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
