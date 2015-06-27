@@ -1,5 +1,7 @@
 #dotfiles
 
+[![Join the chat at https://gitter.im/niltonvasques/dotfiles](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/niltonvasques/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 My personal repo to store dotfiles used by some programs, like vim, tmux e etc.
 
 ###Instalation
