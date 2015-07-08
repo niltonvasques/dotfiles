@@ -89,7 +89,7 @@ if has("autocmd")
   autocmd Filetype cpp setlocal omnifunc=syntaxcomplete#Complete
 endif 
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 " Use this option to change the mapping to invoke CtrlP in |Normal| mode: > "
 let g:ctrlp_map = '<c-p>'
@@ -130,3 +130,29 @@ autocmd FileType c setlocal autoindent cindent
 if has ("autocmd")
     filetype indent on
 endif
+
+" file is large from 10mb
+let g:LargeFile = 1024 * 1024 * 10
+augroup LargeFile 
+ autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
+augroup END
+
+function LargeFile()
+ " no syntax highlighting etc
+ set eventignore+=FileType
+ " save memory when other file is viewed
+ setlocal bufhidden=unload
+ " is read-only (write with :w new_filename)
+ setlocal buftype=nowrite
+ " no undo possible
+ setlocal undolevels=-1
+ " display message
+ autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
+endfunction
+
+"EasyMotion config
+" Gif config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_smartcase = 1

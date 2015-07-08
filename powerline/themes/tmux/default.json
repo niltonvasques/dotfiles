@@ -5,7 +5,7 @@
                 "function": "powerline.segments.common.players.cmus",
                 "name": "player",
                 "args": {
-                    "format": "{state_symbol} {title} - {artist} - {album}"
+                    "format": "{state_symbol} {title} - {artist}"
                 }
             },
             {

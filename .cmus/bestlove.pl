@@ -19,3 +19,5 @@
 /home/niltonvasques/Music/Bob Marley - Greatest Hits 2CD (2008) [320] vtwin88cube/Disc 1/15.Three Little Birds.mp3
 /home/niltonvasques/Music/Bob Marley - Greatest Hits 2CD (2008) [320] vtwin88cube/Disc 1/03.Is This Love.mp3
 /home/niltonvasques/Music/Red Hot - Live At Slane Castle/02 Scar Tissue.mp3
+/home/niltonvasques/Music/Scorpions/Scorpions 1995-1999/1995 - Live Bites/06. When The Smoke Is Going Down.mp3
+/home/niltonvasques/Music/Evanescence - Greatest Hits 2012 320kbps CBR MP3 [VX]/1/06. Missing.mp3
