@@ -4,9 +4,9 @@
 
 
 # variables
-LOG_FILE=$HOME/.mutt/log/offlineimap.log 
-ACCOUNT=niltonvasques
-MUTTRC=$HOME/.mutt/muttgmailrc
+LOG_FILE=$HOME/.mutt/log/offlineimap-opmbx.log 
+ACCOUNT=$1
+MUTTRC=$2
 
 # main loop
 while true      # run forever

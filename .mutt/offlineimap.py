@@ -7,6 +7,6 @@ def mailpasswd(acct):
   try:
     passwd =  subprocess.check_output(args)
     #sys.stdout.write(passwd)
-    return passwd
+    return passwd.strip()
   except subprocess.CalledProcessError:
     return ""

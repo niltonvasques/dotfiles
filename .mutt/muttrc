@@ -9,16 +9,6 @@ set folder = ~/.mail
 set mailcap_path=~/.mutt/mailcap
 set mailcap_sanitize
 
-# Account Settings -----------------------------------
-set spoolfile = "+nilton.junior@thyssenkrupp.com/INBOX"
-set postponed = "+nilton.junior@thyssenkrupp.com/Drafts"
-set mbox = "+nilton.junior@thyssenkrupp.com/Archives"
-
-mailboxes +nilton.junior@thyssenkrupp.com/INBOX \
-          +nilton.junior@thyssenkrupp.com/enviadas \
-          +nilton.junior@thyssenkrupp.com/Sent \
-
-
 # Misc -----------------------------------------------
 set display_filter = ~/.mutt/aliases.sh #store addres from mail readed
 set edit_headers = yes 
@@ -82,7 +72,7 @@ bind index <space>  collapse-thread
 # Sync email -----------------------------------------
 macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
 macro index o "<shell-escape>offlineimap -qf INBOX<enter>" "run offlineimap to sync inbox"
-macro index,pager s '<sync-mailbox><shell-escape>~/.mutt/rip-sync.sh &<enter>' #force offlineimap run
+macro index,pager s '<sync-mailbox><shell-escape>~/.mutt/mail-sync.sh &<enter>' #force offlineimap run
 
 macro index .n "l~N\n" # show only new messages
 macro index .a "l~A\n" # show all messages
@@ -94,7 +84,7 @@ macro index <esc>m "T~N<enter>;WNT~O<enter>;WO\CT~T<enter>" "mark all messages r
 bind index,pager <down>   sidebar-next
 bind index,pager <up>     sidebar-prev
 bind index,pager <right>  sidebar-open
-bind index,pager <left>   sidebar-open
+bind index,pager <left>  sidebar-open
 
 #Here’s another example, which maps the forward slash symbol (/) to the search command, as in vi,
 bind pager / search
@@ -106,7 +96,6 @@ macro index b '<enter-command>toggle sidebar_visible<enter>'
 macro pager b '<enter-command>toggle sidebar_visible<enter>'
 
 # Compose View Options -------------------------------
-set realname = "Nilton Vasques"      # who am i?
 set envelope_from                    # which from?
 set sig_dashes                       # dashes before sig
 set edit_headers                     # show headers when composing
@@ -122,14 +111,22 @@ set reverse_name                     # reply as whomever it was to
 set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
-# Sending options
-set from     = "nilton.junior@thyssenkrupp.com"
-set sendmail = "/usr/bin/msmtp -a niltonrip"
-set sendmail_wait = 0
-unset record
+# --------------------------------------------------------------------
+# GnuPG Config 
+# --------------------------------------------------------------------
+set pgp_use_gpg_agent = yes
+set pgp_timeout = 3600
+# In private muttrc add
+# set pgp_sign_as = <gpg keyid> 
+set crypt_autosign = yes
+set crypt_replyencrypt = yes
 
 # -----------------------------------------------------------------------------------------------
 # Loading Alias File
 # -----------------------------------------------------------------------------------------------
 source ~/.mutt/colors.muttrc
 source $alias_file 
+# -----------------------------------------------------------------------------------------------
+# Loading gpg config 
+# -----------------------------------------------------------------------------------------------
+source ~/.mutt/gpg.rc
