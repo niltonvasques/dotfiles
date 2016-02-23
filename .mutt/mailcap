@@ -17,7 +17,7 @@ image/gif; eog %s gif
 application/pdf; evince %s 
 
 # HTML
-text/html; iceweasel %s 
+text/html; xdg-open %s > /dev/null 2> /dev/null
 
 # Unidentified files
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
