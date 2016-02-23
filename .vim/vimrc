@@ -98,6 +98,9 @@ let g:ctrlp_map = '<c-p>'
 " Set the default opening command to use when pressing the above mapping: > "
 let g:ctrlp_cmd = 'CtrlP'
 
+" Set the ctrlp ignore files options "
+let g:ctrlp_custom_ignore = '\v(\.cache)$'
+
 "vim airline "
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'powerlineish'
