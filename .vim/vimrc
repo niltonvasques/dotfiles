@@ -100,6 +100,8 @@ let g:ctrlp_cmd = 'CtrlP'
 
 " Set the ctrlp ignore files options "
 let g:ctrlp_custom_ignore = '\v(\.cache)$'
+" Indexing files using git repo track "
+let g:ctrlp_user_command =  ['.git', 'cd %s && git ls-files . -co --exclude-standard']
 
 "vim airline "
 let g:airline_powerline_fonts = 1
