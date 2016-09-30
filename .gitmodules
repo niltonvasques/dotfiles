@@ -73,3 +73,6 @@
 [submodule ".vim/bundle/gnupg.vim"]
 	path = .vim/bundle/gnupg.vim
 	url = https://github.com/vim-scripts/gnupg.vim.git
+[submodule ".vim/bundle/vim-unimpaired"]
+	path = .vim/bundle/vim-unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
