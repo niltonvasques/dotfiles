@@ -5,3 +5,4 @@
 .mutt/private.muttrc
 .mutt/private-kaefer.muttrc
 *.pyc
+.vim/plugged

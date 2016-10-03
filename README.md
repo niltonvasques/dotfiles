@@ -1,15 +1,16 @@
 #dotfiles
 
-[![Join the chat at https://gitter.im/niltonvasques/dotfiles](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/niltonvasques/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 My personal repo to store dotfiles used by some programs, like vim, tmux e etc.
 
 ###Instalation
 ---------------------
 
     
-#####Install ruby interpreter
-    aptitude install ruby
+##### Requirements
+
+    pip3 install neovim
+    apt-get install ruby
+    gem install neovim
 
 #####Next, clone repo, initialize modules and install it.
 
@@ -21,14 +22,23 @@ My personal repo to store dotfiles used by some programs, like vim, tmux e etc.
 
     ./install.rb or ruby install.rb
 
-#####Disabling vim plugins
+
+###Plugins
+-----------------------
+
+#### Installing vim plugins
+
+Inside vim:
+
+    :PlugInstall
+
+##### Disabling vim plugins
 For disable some vim plugin, just deinit git module in bundle folder. 
 For example, if you wish disable YouCompleteMe vim plugin just type this:
 
     git submodule deinit .vim/bundle/YouCompleteMe
 
-###Plugins
------------------------
+#### Descriptions
 
 #####Ctrl-P
 Super ultra fast fuzzy finder for files. After use it once, you never more you want open files by old way.
@@ -59,22 +69,12 @@ And the lines will be changed to:
     2
     3
 
-#####YouCompleteMe plugin 
-YouCompleteMe only works in vim with Python Support
-So, follow instructions from YouCompleteMe repo, about how compile vim from source, and enable python..
+##### Deoplete 
+An auto complete async plugin for neovim
 
-    [Installing vim from source](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source)
+Type <C-x><C-o> to get completion list.
 
-#####Tern for vim (Javascript intellisense)
-To make tern_form_vim works, is needed make some configurations.
-
-So, move to .vim/bundle/tern_for_vim/ and follow this instructions:
-
-> Make sure you have node.js and npm installed (Tern is a JavaScript program), and install the tern server by running npm install in the bundle/tern_for_vim directory.
-> Caution: Because the node process is not run using your standard shell, the NVM version of node.js won't work. You need a global node executable.
-> Fonte: https://github.com/marijnh/tern_for_vim
-
-![alt text](https://github.com/niltonvasques/dotfiles/raw/master/docs/res/ss-new.png "Screenshot")
+Tested with ruby, javascript, java and python.
 
 ###Contribute with the project
 
