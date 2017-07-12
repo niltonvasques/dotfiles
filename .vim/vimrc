@@ -1,24 +1,24 @@
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
 " /usr/share/vim/vimcurrent/debian.vim) and sourced by the call to :runtime
 " you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vim/vimrc), since debian.vim will be overwritten 
-" everytime an upgrade of the vim packages is performed.  It is recommended to 
-" make changes after sourcing debian.vim since it alters the value of the 
+" do it in this file (/etc/vim/vimrc), since debian.vim will be overwritten
+" everytime an upgrade of the vim packages is performed.  It is recommended to
+" make changes after sourcing debian.vim since it alters the value of the
 "'compatible' option.
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
 " Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous 
-" options, so any other options should be set AFTER setting 'compatible'.  
-"set compatible 
-" Vim5 and later versions support syntax highlighting. Uncommenting the next 
+" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
+" options, so any other options should be set AFTER setting 'compatible'.
+"set compatible
+" Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.  syntax on
 
-set expandtab 
-set shiftwidth=2 
-set softtabstop=2 
+set expandtab
+set shiftwidth=2
+set softtabstop=2
 " Uncomment next line to enable line numbers
 set nu
 
@@ -38,6 +38,7 @@ set backspace=2
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
+set nohlsearch          " Completely disable highlighting after search texts
 "set showcmd		" Show (partial) command in status line.
 "set showmatch		" Show matching brackets.
 "set ignorecase		" Do case insensitive matching
@@ -80,14 +81,17 @@ execute pathogen#helptags()
 "" OMNI COMPLETION "
 filetype plugin on
 " set autocomplete popup menu colors "
-highlight Pmenu ctermbg=white gui=bold  
+highlight Pmenu ctermbg=white gui=bold
 set completeopt-=preview " disable split window "
-if has("autocmd") 
-  autocmd Filetype java setlocal omnifunc=javacomplete#Complete 
+if has("autocmd")
+  autocmd Filetype java setlocal omnifunc=javacomplete#Complete
   autocmd Filetype c setlocal omnifunc=syntaxcomplete#Complete
   autocmd Filetype c++ setlocal omnifunc=syntaxcomplete#Complete
   autocmd Filetype cpp setlocal omnifunc=syntaxcomplete#Complete
-endif 
+
+  " Removing trailling whitespace
+  autocmd BufWritePre * %s/\s\+$//e
+endif
 
 "let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
@@ -113,9 +117,9 @@ syntax enable
 set background=dark
 "" let g:solarized_termcolors=256
 "set t_Co=256
-"colorscheme solarized 
+"colorscheme solarized
 colorscheme tomorrow-night-bright
-"colorscheme base16-default 
+"colorscheme base16-default
 set t_ut=
 "let g:solarized_visibility = "high"
 "let g:solarized_bold = 1
@@ -129,7 +133,7 @@ let b:delimitMate_expand_cr = 1
 "let b:delimitMate_expand_space = 1
 
 " Indent Options "
-autocmd FileType c setlocal autoindent cindent 
+autocmd FileType c setlocal autoindent cindent
 
 " Ruby indentation from http://ubuntuforums.org/showthread.php?t=290462
 if has ("autocmd")
@@ -138,7 +142,7 @@ endif
 
 " file is large from 10mb
 let g:LargeFile = 1024 * 1024 * 10
-augroup LargeFile 
+augroup LargeFile
  autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
 augroup END
 
@@ -165,6 +169,9 @@ let g:EasyMotion_smartcase = 1
 call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Auto complete for ruby
+Plug 'fishbullet/deoplete-ruby'
 
 " Make sure you use single quotes
 
@@ -201,3 +208,11 @@ call plug#end()
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+
+" Let <Tab> also do completion
+inoremap <silent><expr> <Tab>
+\ pumvisible() ? "\<C-n>" :
+\ deoplete#mappings#manual_complete()
+
+" Close the documentation window when completion is done
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif

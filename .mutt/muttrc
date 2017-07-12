@@ -79,6 +79,8 @@ macro index .a "l~A\n" # show all messages
 macro index <esc>m "T~N<enter>;WNT~O<enter>;WO\CT~T<enter>" "mark all messages read" # Mark all messages as readed
 
 # Side Bar Pacth -------------------------------------
+set sidebar_short_path = yes
+set sidebar_visible = yes
 
 # Sidebar Navigation ---------------------------------
 bind index,pager <down>   sidebar-next
