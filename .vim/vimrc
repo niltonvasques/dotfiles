@@ -168,6 +168,11 @@ let g:EasyMotion_smartcase = 1
 
 call plug#begin('~/.vim/plugged')
 
+" Updates the remotes plugin manifest see :help remote-plugin-manifest
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Auto complete for ruby
