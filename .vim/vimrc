@@ -19,6 +19,8 @@ runtime! debian.vim
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+
+set colorcolumn=100
 " Uncomment next line to enable line numbers
 set nu
 
@@ -169,14 +171,18 @@ let g:EasyMotion_smartcase = 1
 call plug#begin('~/.vim/plugged')
 
 " Updates the remotes plugin manifest see :help remote-plugin-manifest
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
+"function! DoRemote(arg)
+"  UpdateRemotePlugins
+"endfunction
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Auto complete for ruby
 Plug 'fishbullet/deoplete-ruby'
+
+Plug 'junegunn/vim-easy-align'
+
+Plug 'vim-scripts/ruby-matchit'
 
 " Make sure you use single quotes
 
@@ -211,6 +217,10 @@ Plug 'fishbullet/deoplete-ruby'
 " Add plugins to &runtimepath
 call plug#end()
 
+" ------------------------
+" Deoplete settings begin
+" ------------------------
+
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
@@ -221,3 +231,29 @@ inoremap <silent><expr> <Tab>
 
 " Close the documentation window when completion is done
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" ------------------------
+" end
+" ------------------------
+
+" ------------------------
+" EasyAlign settings begin
+" ------------------------
+"
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" ------------------------
+" end
+" ------------------------
+
+"  ----------------------
+"  Custom macros
+"  ----------------------
+"
+" wrap => puts \"#\" * 90 above and bellow current line
+let @p = 'oputs "#" * 90kOputs "#" * 90'
+" remove spaces from beginning and end of parethensis ( ... ) => (...)
+let @i = 'V:s/( \€kb(€kb\(.&€kb*)€kb\) /€kb)/(\1)/ge'
+"  ----------------------
+"  end
+"  ----------------------
