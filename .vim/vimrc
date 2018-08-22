@@ -20,9 +20,22 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+" enable persistent undo
+set undofile "persistent undo
+set undodir=~/.vim/undodir
+
+" Create a vertical line to highlight the max colum width
 set colorcolumn=100
+
+" break lines using gq command
+set tw=100
+
 " Uncomment next line to enable line numbers
 set nu
+
+" . If you want to keep the same column, set nosol before going into visual block mode,
+" and then hit G
+set nosol
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
