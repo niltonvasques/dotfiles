@@ -258,6 +258,10 @@ nmap ga <Plug>(EasyAlign)
 " ------------------------
 " end
 " ------------------------
+"
+
+nmap <C-k> :
+
 
 "  ----------------------
 "  Custom macros
@@ -266,7 +270,11 @@ nmap ga <Plug>(EasyAlign)
 " wrap => puts \"#\" * 90 above and bellow current line
 let @p = 'oputs "#" * 90kOputs "#" * 90'
 " remove spaces from beginning and end of parethensis ( ... ) => (...)
-let @i = 'V:s/( \€kb(€kb\(.&€kb*)€kb\) /€kb)/(\1)/ge'
+let @i = 'V:s/( \Â€kb(Â€kb\(.&Â€kb*)Â€kb\) /Â€kb)/(\1)/ge'
+
+let @r = ':w ! ruby'
+
+let @b = 'vi{"syda{bf adosendV%='
 "  ----------------------
 "  end
 "  ----------------------
