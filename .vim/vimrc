@@ -274,7 +274,10 @@ let @i = 'V:s/( \kb(kb\(.&kb*)kb\) /kb)/(\1)/ge'
 
 let @r = ':w ! ruby'
 
+" replace do..end => { .. }
 let @b = 'vi{"syda{bf adosendV%='
+" replace { .. } => do..end
+let @v = '?dodwa{�kDJA }jddkf}'
 "  ----------------------
 "  end
 "  ----------------------
