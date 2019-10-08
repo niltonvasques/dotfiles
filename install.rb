@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # Copyright [2015] [Nilton Vasques <nilton.vasques@gmail.com>]
-# 
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-HOME = ENV['HOME'] 
+HOME = ENV['HOME']
 
 def are_you_sure?
   print "Are you sure? [y/N]: "
@@ -26,7 +26,7 @@ def dotfiles_list
 end
 
 dotfiles_list.each do |dot|
-  dest_file = "#{HOME}/#{dot}" 
+  dest_file = "#{HOME}/#{dot}"
   dot = "#{Dir.pwd}/#{dot}"
   if File.file?(dest_file) || File.directory?(dest_file) || File.symlink?(dest_file)
     puts "#{dest_file} exists and will be erased."
@@ -36,13 +36,13 @@ dotfiles_list.each do |dot|
       puts "Create symlink #{dest_file} -> #{dot}"
       File.symlink(dot, dest_file)
     end
-  else 
+  else
     puts "Create symlink #{dest_file} -> #{dot}"
     File.symlink(dot, dest_file)
   end
 end
 
-# Install base16-default theme in gnome-terminal 
+# Install base16-default theme in gnome-terminal
 puts "Do you want install base-16 theme to gnome-terminal?"
 if are_you_sure?
   system "source gnome-terminal/base16-gnome-terminal/base16-default.dark.sh"
@@ -66,6 +66,7 @@ if are_you_sure?
   File.symlink(ls_theme, ls_theme_link)
   File.open("#{HOME}/.bashrc", 'a') do |f|
     f.puts "eval `dircolors ~/.dir_colors`"
+    f.puts "source #{Dir.pwd}/bash_functions.sh"
   end
 end
 
@@ -77,5 +78,5 @@ if are_you_sure?
   if File.file?(powerline_dest) || File.directory?(powerline_dest) || File.symlink?(powerline_dest)
     system "rm -Rf #{powerline_dest}"
   end
-  File.symlink(powerline, powerline_dest) 
+  File.symlink(powerline, powerline_dest)
 end
