@@ -181,14 +181,24 @@ omap / <Plug>(easymotion-tn)
 map <Leader> <Plug>(easymotion-prefix)
 let g:EasyMotion_smartcase = 1
 
+let g:python_host_prog = '/usr/bin/python2.7'
+let g:python3_host_prog = '/usr/bin/python3.5'
+
 call plug#begin('~/.vim/plugged')
 
 " Updates the remotes plugin manifest see :help remote-plugin-manifest
 "function! DoRemote(arg)
 "  UpdateRemotePlugins
 "endfunction
+"
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'udalov/kotlin-vim'
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'tag': '4.1' }
+
+" Android Studio Plugin to feed kotlin autocomplete
+" Not working
+"Plug 'beeender/Comrade'
 
 " Auto complete for ruby
 Plug 'fishbullet/deoplete-ruby'
@@ -196,6 +206,11 @@ Plug 'fishbullet/deoplete-ruby'
 Plug 'junegunn/vim-easy-align'
 
 Plug 'vim-scripts/ruby-matchit'
+
+" JSX Support
+
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " Make sure you use single quotes
 
