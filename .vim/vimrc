@@ -182,7 +182,7 @@ map <Leader> <Plug>(easymotion-prefix)
 let g:EasyMotion_smartcase = 1
 
 let g:python_host_prog = '/usr/bin/python2.7'
-let g:python3_host_prog = '/usr/bin/python3.5'
+let g:python3_host_prog = '/usr/bin/python3'
 
 call plug#begin('~/.vim/plugged')
 
@@ -211,6 +211,9 @@ Plug 'vim-scripts/ruby-matchit'
 
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+
+" Syntax Highlighting for SQL heredocs
+Plug 'aliou/sql-heredoc.vim'
 
 " Make sure you use single quotes
 

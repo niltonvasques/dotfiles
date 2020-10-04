@@ -73,7 +73,7 @@ video_to_gif() {
         ffmpeg -i "$1" -s 412x660 -pix_fmt rgb24 -r 5 -f gif - | gifsicle --optimize=3 --delay=10 > "$1.gif";
       fi
       if [ "$2" == "web" ]; then
-        ffmpeg -i "$1" -s 660x350 -pix_fmt rgb24 -r 5 -f gif - | gifsicle --optimize=3 --delay=10 > "$1.gif";
+        ffmpeg -i "$1" -s 1220x700 -pix_fmt rgb24 -r 5 -f gif - | gifsicle --optimize=3 --delay=10 > "$1.gif";
       fi
     else
       echo "There is no file named: $1";
@@ -137,7 +137,7 @@ redukt_tmux() {
   local target="ssh-multi redukt"
 
   tmux new-window -n "${target}" 'adb logcat -c && adb logcat | grep -E "Redukt> has start"'
-  tmux split-window -t :"${target}" -h  'adb logcat -c && adb logcat | grep "Start sync\|The list of "'
+  tmux split-window -t :"${target}" -h  'adb logcat -c && adb logcat | grep -i objectbox'
   tmux select-layout -t :"${target}" tiled > /dev/null
   tmux split-window -t :"${target}" -h  'adb logcat -c && adb logcat | grep "has start \[SYNC_DONE"'
   tmux select-layout -t :"${target}" tiled > /dev/null
@@ -146,3 +146,53 @@ redukt_tmux() {
   tmux select-pane -t 0
 }
 
+## FZF - function utilities
+# https://github.com/junegunn/fzf/wiki/examples#changing-directory
+
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+# cf - fuzzy cd from anywhere
+# ex: cf word1 word2 ... (even part of a file name)
+# zsh autoload function
+cf() {
+  local file
+
+  file="$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1)"
+
+  if [[ -n $file ]]
+  then
+     if [[ -d $file ]]
+     then
+        cd -- $file
+     else
+        cd -- ${file:h}
+     fi
+  fi
+}
+
+# using ripgrep combined with preview
+# find-in-file - usage: fif <searchTerm>
+fif() {
+  if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+  rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+}
+
+# fh - repeat history
+runcmd (){ perl -e 'ioctl STDOUT, 0x5412, $_ for split //, <>' ; }
+
+fh() {
+  ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf --tac | sed -re 's/^\s*[0-9]+\s*//' | runcmd
+}
+
+# fhe - repeat history edit
+writecmd (){ perl -e 'ioctl STDOUT, 0x5412, $_ for split //, do{ chomp($_ = <>); $_ }' ; }
+
+fhe() {
+  ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf --tac | sed -re 's/^\s*[0-9]+\s*//' | writecmd
+}
