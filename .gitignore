@@ -6,3 +6,4 @@
 .mutt/private-kaefer.muttrc
 *.pyc
 .vim/plugged
+.vim/undodir
