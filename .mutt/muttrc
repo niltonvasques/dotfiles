@@ -4,14 +4,14 @@ set header_cache=~/.mutt/cache/headers
 set message_cachedir=~/.mutt/cache/bodies
 set certificate_file=~/.mutt/certificates
 set signature=~/.mutt/sig
-set folder = ~/.mail 
+set folder = ~/.mail
 # define mailcaps
 set mailcap_path=~/.mutt/mailcap
 set mailcap_sanitize
 
 # Misc -----------------------------------------------
 set display_filter = ~/.mutt/aliases.sh #store addres from mail readed
-set edit_headers = yes 
+set edit_headers = yes
 set autoedit
 
 # Basic Options --------------------------------------
@@ -114,12 +114,12 @@ set include                          # include message in replies
 set forward_quote                    # include message in forwards
 
 # --------------------------------------------------------------------
-# GnuPG Config 
+# GnuPG Config
 # --------------------------------------------------------------------
 set pgp_use_gpg_agent = yes
 set pgp_timeout = 3600
 # In private muttrc add
-# set pgp_sign_as = <gpg keyid> 
+# set pgp_sign_as = <gpg keyid>
 set crypt_autosign = yes
 set crypt_replyencrypt = yes
 
@@ -127,8 +127,19 @@ set crypt_replyencrypt = yes
 # Loading Alias File
 # -----------------------------------------------------------------------------------------------
 source ~/.mutt/colors.muttrc
-source $alias_file 
+source $alias_file
 # -----------------------------------------------------------------------------------------------
-# Loading gpg config 
+# Loading gpg config
 # -----------------------------------------------------------------------------------------------
 source ~/.mutt/gpg.rc
+
+# attachments settings
+unattachments +A */.*
+unattachments +A application/pdf
+unattachments -A text/x-vcard
+unattachments -A application/pgp.*
+unattachments -A application/x-pkcs7-.*
+unattachments -A message/external-body
+unattachments +I text/plain
+unattachments -I message/external-body
+attachments +A application/pdf

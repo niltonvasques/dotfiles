@@ -58,6 +58,14 @@ apk_install() {
   find . -name *.apk | xargs -I {} adb install -r {}
 }
 
+open_dpms_dev_apk() {
+  adb shell monkey -p com.kaefer.pms.dev -c android.intent.category.LAUNCHER 1
+}
+
+open_dpms_demo_apk() {
+  adb shell monkey -p com.kaefer.pms.demo -c android.intent.category.LAUNCHER 1
+}
+
 #### Use it inside folder where the video is present!
 ## Converts a video (.mov) to gif (.gif).
 ## If no params is passed, the 'a.mov' video will be converted to 'a.gif' gif
