@@ -103,6 +103,8 @@ if has("autocmd")
   autocmd Filetype c setlocal omnifunc=syntaxcomplete#Complete
   autocmd Filetype c++ setlocal omnifunc=syntaxcomplete#Complete
   autocmd Filetype cpp setlocal omnifunc=syntaxcomplete#Complete
+  autocmd Filetype ruby setlocal omnifunc=syntaxcomplete#Complete
+  autocmd Filetype crystal setlocal omnifunc=syntaxcomplete#Complete
 
   " Removing trailling whitespace
   autocmd BufWritePre * %s/\s\+$//e
@@ -218,6 +220,9 @@ Plug 'vim-scripts/ruby-matchit'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
+" Crystal Support
+Plug 'vim-crystal/vim-crystal'
+
 " Syntax Highlighting for SQL heredocs
 Plug 'aliou/sql-heredoc.vim'
 
@@ -279,7 +284,7 @@ local on_attach = function(client, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   --Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
@@ -339,8 +344,6 @@ cmp.setup {
     ['<Tab>'] = function(fallback)
       if vim.fn.pumvisible() == 1 then
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
-      elseif luasnip.expand_or_jumpable() then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
       else
         fallback()
       end
@@ -348,8 +351,6 @@ cmp.setup {
     ['<S-Tab>'] = function(fallback)
       if vim.fn.pumvisible() == 1 then
         vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
-      elseif luasnip.jumpable(-1) then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
       else
         fallback()
       end

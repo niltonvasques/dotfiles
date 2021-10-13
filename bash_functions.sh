@@ -204,3 +204,18 @@ writecmd (){ perl -e 'ioctl STDOUT, 0x5412, $_ for split //, do{ chomp($_ = <>);
 fhe() {
   ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf --tac | sed -re 's/^\s*[0-9]+\s*//' | writecmd
 }
+
+# fkill - kill processes - list only the ones you can kill. Modified the earlier script.
+fkill() {
+    local pid
+    if [ "$UID" != "0" ]; then
+        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+    else
+        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    fi
+
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill -${1:-9}
+    fi
+}
