@@ -195,9 +195,16 @@ call plug#begin('~/.vim/plugged')
 "function! DoRemote(arg)
 "  UpdateRemotePlugins
 "endfunction
-"
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'junegunn/vim-easy-align'
 
 Plug 'udalov/kotlin-vim'
+
+Plug 'easymotion/vim-easymotion'
 
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'tag': '4.1' }
 
@@ -211,7 +218,6 @@ Plug 'udalov/kotlin-vim'
 " Plug 'hrsh7th/nvim-cmp'
 " Plug 'hrsh7th/cmp-nvim-lsp'
 
-Plug 'junegunn/vim-easy-align'
 
 Plug 'vim-scripts/ruby-matchit'
 

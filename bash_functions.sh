@@ -66,6 +66,10 @@ open_dpms_demo_apk() {
   adb shell monkey -p com.kaefer.pms.demo -c android.intent.category.LAUNCHER 1
 }
 
+open_dpms_apk() {
+  adb shell monkey -p com.kaefer.dpms -c android.intent.category.LAUNCHER 1
+}
+
 #### Use it inside folder where the video is present!
 ## Converts a video (.mov) to gif (.gif).
 ## If no params is passed, the 'a.mov' video will be converted to 'a.gif' gif
@@ -203,4 +207,56 @@ writecmd (){ perl -e 'ioctl STDOUT, 0x5412, $_ for split //, do{ chomp($_ = <>);
 
 fhe() {
   ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf --tac | sed -re 's/^\s*[0-9]+\s*//' | writecmd
+}
+
+# fkill - kill processes - list only the ones you can kill. Modified the earlier script.
+fkill() {
+    local pid
+    if [ "$UID" != "0" ]; then
+        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+    else
+        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    fi
+
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill -${1:-9}
+    fi
+}
+
+alias glNoGraph='git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@"'
+_gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
+_viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always % | diff-so-fancy'"
+
+fco_preview() {
+  local tags branches target
+  branches=$(
+    git --no-pager branch --all \
+      --format="%(if)%(HEAD)%(then)%(else)%(if:equals=HEAD)%(refname:strip=3)%(then)%(else)%1B[0;34;1mbranch%09%1B[m%(refname:short)%(end)%(end)" \
+    | sed '/^$/d') || return
+  tags=$(
+    git --no-pager tag | awk '{print "\x1b[35;1mtag\x1b[m\t" $1}') || return
+  target=$(
+    (echo "$branches"; echo "$tags") |
+    fzf --no-hscroll --no-multi -n 2 \
+        --ansi --preview="git --no-pager log -150 --pretty=format:%s '..{2}'") || return
+  git checkout $(awk '{print $2}' <<<"$target" )
+}
+# fcoc_preview - checkout git commit with previews
+fcoc_preview() {
+  local commit
+  commit=$( glNoGraph |
+    fzf --no-sort --reverse --tiebreak=index --no-multi \
+        --ansi --preview="$_viewGitLogLine" ) &&
+  git checkout $(echo "$commit" | sed "s/ .*//")
+}
+
+# fshow_preview - git commit browser with previews
+fshow_preview() {
+    glNoGraph |
+        fzf --no-sort --reverse --tiebreak=index --no-multi \
+            --ansi --preview="$_viewGitLogLine" \
+                --header "enter to view, alt-y to copy hash" \
+                --bind "enter:execute:$_viewGitLogLine   | less -R" \
+                --bind "alt-y:execute:$_gitLogLineToHash | xclip"
 }

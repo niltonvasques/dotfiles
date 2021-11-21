@@ -5,7 +5,7 @@ My personal repo to store dotfiles used by some programs, like vim, tmux e etc.
 ###Instalation
 ---------------------
 
-    
+
 ##### Requirements
 
     pip3 install neovim
@@ -22,6 +22,17 @@ My personal repo to store dotfiles used by some programs, like vim, tmux e etc.
 
     ./install.rb or ruby install.rb
 
+##### Setup diff-so-fancy on GIT
+
+```sh
+git clone https://github.com/so-fancy/diff-so-fancy.git
+# add diff-so-fancy to PATH variable on .bashrc
+
+# setup git to use it
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+git config --global interactive.diffFilter "diff-so-fancy --patch"
+```
+
 
 ###Plugins
 -----------------------
@@ -33,7 +44,7 @@ Inside vim:
     :PlugInstall
 
 ##### Disabling vim plugins
-For disable some vim plugin, just deinit git module in bundle folder. 
+For disable some vim plugin, just deinit git module in bundle folder.
 For example, if you wish disable YouCompleteMe vim plugin just type this:
 
     git submodule deinit .vim/bundle/YouCompleteMe
@@ -44,7 +55,7 @@ For example, if you wish disable YouCompleteMe vim plugin just type this:
 Super ultra fast fuzzy finder for files. After use it once, you never more you want open files by old way.
 
 #####Emmet
-HTML tag generator. 
+HTML tag generator.
 Try:
     html:5<ctrl-y> + <,>
 
@@ -69,7 +80,7 @@ And the lines will be changed to:
     2
     3
 
-##### Deoplete 
+##### Deoplete
 An auto complete async plugin for neovim
 
 Type <C-x><C-o> to get completion list.
