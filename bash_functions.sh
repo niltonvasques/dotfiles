@@ -260,3 +260,8 @@ fshow_preview() {
                 --bind "enter:execute:$_viewGitLogLine   | less -R" \
                 --bind "alt-y:execute:$_gitLogLineToHash | xclip"
 }
+
+# mem java - display the total memory used by a process
+mem() {
+  ps -C "$1" -O rss | awk '{ count ++; sum += $2 }; END {count --; print "Number of processes:\t",count; print "Mem. usage per process:\t",sum/1024/count, "MB"; print "Total memory usage:\t", sum/1024, "MB" ;};';
+}
