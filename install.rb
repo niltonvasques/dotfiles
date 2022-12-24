@@ -80,3 +80,25 @@ if are_you_sure?
   end
   File.symlink(powerline, powerline_dest)
 end
+
+puts "Do you want install neovim configurations?"
+if are_you_sure?
+  neovim = "#{Dir.pwd}/.vim"
+  neovim_dest = "#{HOME}/.config/nvim"
+  puts "Create symlink #{neovim_dest} -> #{neovim}"
+  if File.file?(neovim_dest) || File.directory?(neovim_dest) || File.symlink?(neovim_dest)
+    system "rm -Rf #{neovim_dest}"
+  end
+  File.symlink(neovim, neovim_dest)
+end
+
+puts "Do you want install bash aliases?"
+if are_you_sure?
+  aliases = "#{Dir.pwd}/.bash_aliases"
+  aliases_dest = "#{HOME}/.bash_aliases"
+  puts "Create symlink #{aliases_dest} -> #{aliases}"
+  if File.file?(aliases_dest) || File.directory?(aliases_dest) || File.symlink?(aliases_dest)
+    system "rm -Rf #{aliases_dest}"
+  end
+  File.symlink(aliases, aliases_dest)
+end

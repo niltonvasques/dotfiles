@@ -142,7 +142,7 @@ set t_ut=
 "let g:solarized_bold = 1
 "let g:solarized_italic = 1
 "let g:solarized_contrast = "high"
-call togglebg#map("<F5>")
+"call togglebg#map("<F5>")
 
 
 " delimitMate options "
@@ -230,7 +230,7 @@ Plug 'mxw/vim-jsx'
 Plug 'vim-crystal/vim-crystal'
 
 " Github copilot
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 
 " Syntax Highlighting for SQL heredocs
 Plug 'aliou/sql-heredoc.vim'
