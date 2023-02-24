@@ -12,6 +12,20 @@ My personal repo to store dotfiles used by some programs, like vim, tmux e etc.
     apt-get install ruby
     gem install neovim
 
+##### Install powerline
+
+    pip3 install powerline-status
+    wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymnbols.otf
+    mkdir ~/.local/share/fonts
+    mv PowerlineSymbols.otf ~/.local/share/fonts/
+    sudo fc-cache -vf ~/.local/share/fonts
+
+##### Installing neovim from source
+
+    git clone git@github.com:neovim/neovim.git
+    cd neovim
+    sudo checkinstall
+
 #####Next, clone repo, initialize modules and install it.
 
     git clone https://github.com/niltonvasques/dotfiles.git

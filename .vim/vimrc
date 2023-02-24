@@ -76,7 +76,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 " STATUS BAR "
 set laststatus=2
 
-set statusline=  	" clean status line"
+set statusline=		" clean status line"
 set statusline=%t       "tail of the filename
 set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=%{&ff}] "file format
