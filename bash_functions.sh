@@ -70,6 +70,10 @@ open_dpms_apk() {
   adb shell monkey -p com.kaefer.dpms -c android.intent.category.LAUNCHER 1
 }
 
+open_dpms_ea1_apk() {
+  adb shell monkey -p com.kaefer.dpms.stable.ea1 -c android.intent.category.LAUNCHER 1
+}
+
 #### Use it inside folder where the video is present!
 ## Converts a video (.mov) to gif (.gif).
 ## If no params is passed, the 'a.mov' video will be converted to 'a.gif' gif
