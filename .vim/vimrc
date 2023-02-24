@@ -128,27 +128,6 @@ let g:ctrlp_user_command =  ['.git', 'cd %s && git ls-files . -co --exclude-stan
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'powerlineish'
 
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-syntax enable
-set background=dark
-"" let g:solarized_termcolors=256
-"set t_Co=256
-"colorscheme solarized
-colorscheme tomorrow-night-bright
-"colorscheme base16-default
-set t_ut=
-"let g:solarized_visibility = "high"
-"let g:solarized_bold = 1
-"let g:solarized_italic = 1
-"let g:solarized_contrast = "high"
-call togglebg#map("<F5>")
-
-
-" delimitMate options "
-let b:delimitMate_expand_cr = 1
-"let b:delimitMate_expand_space = 1
-
 " Indent Options "
 autocmd FileType c setlocal autoindent cindent
 
@@ -196,17 +175,60 @@ call plug#begin('~/.vim/plugged')
 "  UpdateRemotePlugins
 "endfunction
 
+
+" ctrlp for fuzzy file, buffer, mru, tag, etc finder
 Plug 'ctrlpvim/ctrlp.vim'
+
+" status bar
 Plug 'vim-airline/vim-airline'
+
+" themes for vim-airline
 Plug 'vim-airline/vim-airline-themes'
+
+" git integration
 Plug 'tpope/vim-fugitive'
+
+" cs"' for changing quotes
 Plug 'tpope/vim-surround'
 
+" HTML/XML tag manipulation
+Plug 'tpope/vim-ragtag'
+
+" save and restore sessions
+Plug 'tpope/vim-obsession'
+
+" [ and ] for moving between buffers
+Plug 'tpope/vim-unimpaired'
+
+" syntax highlighting for GLSL shaders
+Plug 'tikhomirov/vim-glsl'
+
+" gaip for aligning text
 Plug 'junegunn/vim-easy-align'
 
+" syntax highlighting for Kotlin
 Plug 'udalov/kotlin-vim'
 
+" EasyMotion for fast navigation
 Plug 'easymotion/vim-easymotion'
+
+" Solarized theme
+Plug 'altercation/vim-colors-solarized'
+
+" GPG support
+Plug 'vim-scripts/gnupg.vim'
+
+" auto closing quotes, brackets, etc
+Plug 'Raimondi/delimitMate'
+
+" Emmet for HTML
+Plug 'mattn/emmet-vim'
+
+" Base16 color scheme
+Plug 'chriskempson/base16-vim'
+
+" Mutt aliases plugin"
+Plug 'niltonvasques/vim-mutt-aliases-plugin'
 
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'tag': '4.1' }
 
@@ -220,18 +242,19 @@ Plug 'easymotion/vim-easymotion'
 " Plug 'hrsh7th/nvim-cmp'
 " Plug 'hrsh7th/cmp-nvim-lsp'
 
-
+" % for matching ruby blocks
 Plug 'vim-scripts/ruby-matchit'
 
-" JSX Support
-
+" javascript syntax highlighting
 Plug 'pangloss/vim-javascript'
+
+" JSX syntax highlighting
 Plug 'mxw/vim-jsx'
 
-" Crystal Support
+" Crystal syntax highlighting
 Plug 'vim-crystal/vim-crystal'
 
-" Github copilot
+" Github Copilot
 Plug 'github/copilot.vim'
 
 " Syntax Highlighting for SQL heredocs
@@ -239,7 +262,11 @@ Plug 'aliou/sql-heredoc.vim'
 
 " Dart Syntax Highlighting and autocomplete
 Plug 'dart-lang/dart-vim-plugin'
+
+" Language Server Client
 Plug 'natebosch/vim-lsc'
+
+" Dart Language Server
 Plug 'natebosch/vim-lsc-dart'
 
 " Make sure you use single quotes
@@ -274,6 +301,35 @@ Plug 'natebosch/vim-lsc-dart'
 
 " Add plugins to &runtimepath
 call plug#end()
+
+" ------------------------
+"  Vim Solarized Theme Settings
+" ------------------------
+
+" If using a dark background within the editing area and syntax highlighting
+" turn on this option as well
+syntax enable
+set background=dark
+"" let g:solarized_termcolors=256
+"set t_Co=256
+"colorscheme solarized
+colorscheme tomorrow-night-bright
+"colorscheme base16-default
+set t_ut=
+"let g:solarized_visibility = "high"
+"let g:solarized_bold = 1
+"let g:solarized_italic = 1
+"let g:solarized_contrast = "high"
+call togglebg#map("<F5>")
+
+" ------------------------
+"  delimitMate Settings
+" ------------------------
+
+" delimitMate options "
+let b:delimitMate_expand_cr = 1
+"let b:delimitMate_expand_space = 1
+
 
 " ------------------------
 " NeoVim LSP (language servers) provides autocomplete and context analysis
