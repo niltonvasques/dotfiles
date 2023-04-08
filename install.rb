@@ -45,7 +45,7 @@ end
 # Install base16-default theme in gnome-terminal
 puts "Do you want install base-16 theme to gnome-terminal?"
 if are_you_sure?
-  system "source gnome-terminal/base16-gnome-terminal/base16-default.dark.sh"
+  # system "source gnome-terminal/base16-gnome-terminal/base16-default.dark.sh"
   system "echo 'export TERM=screen-256color-bce' >> ~/.bashrc"
   puts "After finish setup, restart gnome-terminal and choose theme in profiles."
 end
@@ -53,22 +53,22 @@ end
 # Setting solarized theme to gnome-terminal
 puts "Do you want install sollarized theme to gnome-terminal?"
 if are_you_sure?
-  system "./gnome-terminal/iterm2themes-gnome-term.sh zenburn"
+  # system "./gnome-terminal/iterm2themes-gnome-term.sh zenburn"
   system "echo 'export TERM=screen-256color-bce' >> ~/.bashrc"
 end
 
 # Setting solarized theme to ls
-puts "Do you want install sollarized theme to ls command?"
-if are_you_sure?
-  ls_theme = "#{Dir.pwd}/gnome-terminal/dircolors-solarized/dircolors.256dark"
-  ls_theme_link = "#{HOME}/.dir_colors"
-  puts "Create symlink #{ls_theme} -> #{ls_theme_link}"
-  File.symlink(ls_theme, ls_theme_link)
-  File.open("#{HOME}/.bashrc", 'a') do |f|
-    f.puts "eval `dircolors ~/.dir_colors`"
-    f.puts "source #{Dir.pwd}/bash_functions.sh"
-  end
-end
+#puts "Do you want install sollarized theme to ls command?"
+#if are_you_sure?
+#  ls_theme = "#{Dir.pwd}/gnome-terminal/dircolors-solarized/dircolors.256dark"
+#  ls_theme_link = "#{HOME}/.dir_colors"
+#  puts "Create symlink #{ls_theme} -> #{ls_theme_link}"
+#  File.symlink(ls_theme, ls_theme_link)
+#  File.open("#{HOME}/.bashrc", 'a') do |f|
+#    f.puts "eval `dircolors ~/.dir_colors`"
+#    f.puts "source #{Dir.pwd}/bash_functions.sh"
+#  end
+#end
 
 puts "Do you want install powerline configurations?"
 if are_you_sure?

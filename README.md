@@ -5,20 +5,16 @@ My personal repo to store dotfiles used by some programs, like vim, tmux e etc.
 ###Instalation
 ---------------------
 
-
 ##### Requirements
 
     pip3 install neovim
-    apt-get install ruby
+    apt-get install ruby # or install via rvm
     gem install neovim
 
 ##### Install powerline
 
     pip3 install powerline-status
-    wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymnbols.otf
-    mkdir ~/.local/share/fonts
-    mv PowerlineSymbols.otf ~/.local/share/fonts/
-    sudo fc-cache -vf ~/.local/share/fonts
+    sudo apt-get install fonts-powerline # ubuntu 22.04
 
 ##### Installing neovim from source
 
