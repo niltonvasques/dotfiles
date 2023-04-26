@@ -102,3 +102,23 @@ if are_you_sure?
   end
   File.symlink(aliases, aliases_dest)
 end
+
+puts "Do you want install bash functions?"
+if are_you_sure?
+  system "echo 'source #{Dir.pwd}/bash_functions.sh' >> ~/.bashrc"
+end
+
+puts "Do you want install bash functions?"
+if are_you_sure?
+  fzf_str = %{
+if [ -f /usr/share/bash-completion/completions/fzf ]; then
+  source /usr/share/bash-completion/completions/fzf
+fi
+
+if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
+  source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
+  }
+
+  system "echo '#{fzf_str}' >> ~/.bashrc"
+end
