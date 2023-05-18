@@ -461,7 +461,7 @@ nmap ga <Plug>(EasyAlign)
 "
 
 nmap <C-k> :
-
+nmap <C-c> :Copilot<CR>
 
 "  ----------------------
 "  Custom macros
