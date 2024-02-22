@@ -23,7 +23,10 @@
                 }
             },
             {
-                "function": "powerline.segments.common.net.external_ip"
+                "function": "powerline.segments.common.net.external_ip",
+                "args": {
+                    "query_url": "https://ipv4.icanhazip.com/"
+                }
             }
         ]
     }
