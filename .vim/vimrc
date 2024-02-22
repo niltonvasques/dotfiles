@@ -166,7 +166,7 @@ let g:python_host_prog = '/usr/bin/python2.7'
 let g:python3_host_prog = '/usr/bin/python3'
 
 " Dart plugin config
-let g:lsc_dart_sdk_path = '/home/niltonvasques/.asdf/installs/dart/2.8.4/dart-sdk'
+let g:lsc_dart_sdk_path = '/home/niltonvasques/.asdf/installs/dart/3.0.3/dart-sdk'
 
 call plug#begin('~/.vim/plugged')
 
