@@ -278,8 +278,31 @@ j() {
     fi
 
     if [[ $# -eq 0 ]]; then
-                 cd "$(autojump -s | sort -k1gr | awk -F : '$1 ~ /[0-9]/ && $2 ~ /^\s*\// {print $1 $2}' | fzf --height 40% --reverse --inline-info --preview "$preview_cmd" --preview-window down:50% | cut -d$'\t' -f2- | sed 's/^\s*//')"
+                 cd "$(autojump -s | sort -k1gr | awk -F : '$1 ~ /[0-9]/ && $2 ~ /\s*\// {print $1 $2}' | fzf --height 40% --reverse --inline-info --preview "$preview_cmd" --preview-window down:50% | cut -d$'\t' -f2- | sed 's/^\s*//')"
     else
         cd $(autojump $@)
     fi
+}
+
+echolor() {
+  echo -e "\e[1;31m$1\e[0m"
+}
+
+#!/bin/bash
+
+# Converts JSON to GraphQL Input Syntax
+json2graphql() {
+    jq -r '
+    def convert:
+      if type == "object" then
+        "{ " + (to_entries | map(.key + ": " + (.value | convert)) | join(" ")) + " }"
+      elif type == "array" then
+        "[ " + (map(convert) | join(" ")) + " ]"
+      elif type == "string" then
+        @json
+      else
+        tostring
+      end;
+    convert
+    '
 }
