@@ -284,6 +284,11 @@ j() {
     fi
 }
 
+fpass() {
+  #pass $(find ~/.password-store/ | sed 's/.*.password-store\///g' | sed 's/.gpg//g' | sort | uniq | fzf --reverse --height 40% --preview="pass {1}")
+  pass $(find ~/.password-store/ | sed 's/.*.password-store\///g' | sed 's/.gpg//g' | sort | uniq | fzf --reverse)
+}
+
 echolor() {
   echo -e "\e[1;31m$1\e[0m"
 }
